@@ -14,8 +14,8 @@ const playRound = (playerSelection, computerSelection) => {
 	else if(playerSelection === 'scissors' && computerSelection === 'rock') return 'You Lose! Rock beats Scissors';
 	else return 'Draw. Nobody wins.';
 }
-
-const playerSelection = 'rock';
+//At this stage I will not be validating user input so the bug will be that such an incorrect value will cause the programme to return a draw. This can be fixed using regular expressions.		
+const playerSelection = prompt('If you please. Enter rock, paper, or scissors.').toLowerCase();
 const computerSelection = computerPlay();
 
 console.log(playRound(playerSelection, computerPlay()));
