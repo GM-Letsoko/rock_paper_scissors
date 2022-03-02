@@ -2,7 +2,8 @@ const game = () => {
 	let playerCount = 0;
 	let computerCount = 0; 
 
-	for(i = 0; i < 5; i++) {
+
+	//for(i = 0; i < 5; i++) {
 		//computerPlay() returns a random computer selection;
 		const computerPlay = () => {
 			const random = Math.floor(Math.random() * 3) + 1;
@@ -34,15 +35,22 @@ const game = () => {
 			} else return 'Draw. Nobody takes this round.';
 		}
 		//At this stage I will not be validating user input so the bug will be that such an incorrect value will cause the programme to return a draw. This can be fixed using regular expressions. 
-		const playerSelection = prompt('If you please. Enter rock, paper, or scissors.').toLowerCase();
+		const buttons = document.querySelectorAll('button');
 		const computerSelection = computerPlay();
+		const playerSelection = buttons.forEach((button) => { 
+			button.addEventListener('click', (e) => {
+				console.log(playRound(e.target.id, computerPlay()));
+			});
+		});
+		//prompt('If you please. Enter rock, paper, or scissors.').toLowerCase();
+		
 
-		console.log(playRound(playerSelection, computerPlay()));
-	}
+		//console.log(playRound(playerSelection, computerPlay()));
+	//}
 
-	if(playerCount > computerCount) console.log('You Win! By ' + playerCount + ' games to ' + computerCount + '.');
-	else if(playerCount < computerCount) console.log('You Lose! By ' + computerCount + ' games to ' + playerCount + '.');
-	else console.log('It\'s a draw! Nobody wins the game');
+	//if(playerCount > computerCount) console.log('You Win! By ' + playerCount + ' games to ' + computerCount + '.');
+	//else if(playerCount < computerCount) console.log('You Lose! By ' + computerCount + ' games to ' + playerCount + '.');
+	//else console.log('It\'s a draw! Nobody wins the game');
 }
 
 game();
