@@ -39,7 +39,7 @@ const game = () => {
 		const computerSelection = computerPlay();
 		const playerSelection = buttons.forEach((button) => { 
 			button.addEventListener('click', (e) => {
-				console.log(playRound(e.target.id, computerPlay()));
+				document.querySelector('div').textContent = playRound(e.target.id, computerPlay());
 			});
 		});
 		//prompt('If you please. Enter rock, paper, or scissors.').toLowerCase();
